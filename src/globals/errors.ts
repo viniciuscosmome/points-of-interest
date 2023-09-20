@@ -4,7 +4,7 @@ import {
 } from '@nestjs/common';
 import { Prisma } from '@prisma/client';
 
-const devMode = process.env.NODE_ENV === 'development';
+import { IS_DEV_MODE } from './constants';
 
 export function prismaKnownRequestErrors(
   error: Prisma.PrismaClientKnownRequestError,
@@ -25,7 +25,7 @@ export function prismaKnownRequestErrors(
 export function prismaUnknownRequestErrors(
   error: Prisma.PrismaClientUnknownRequestError,
 ) {
-  if (devMode) {
+  if (IS_DEV_MODE) {
     console.info('prismaUnknownRequestErrors', error);
   }
 
@@ -33,7 +33,7 @@ export function prismaUnknownRequestErrors(
 }
 
 export function unknownError(error: unknown) {
-  if (devMode) {
+  if (IS_DEV_MODE) {
     console.info('Unknown error', error);
   }
 
