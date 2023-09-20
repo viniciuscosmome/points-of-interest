@@ -7,12 +7,12 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = "file:./database/pois.sql"
 }
 
 model PointsOfInterest {
-  id String @id @default(uuid())
-  name String
+  id     String @id @default(uuid())
+  name   String
   xCoord BigInt @map("x_coord")
   yCoord BigInt @map("y_coord")
 
