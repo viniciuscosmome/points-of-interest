@@ -12,7 +12,7 @@ export class CreatePointOfInterestDto {
   @ApiProperty()
   @IsNotEmpty()
   @IsString()
-  @Matches(/^[a-zÀ-ÿ0-9 _-]+$/i)
+  @Matches(/^[a-zÀ-ÿ0-9 ]+$/i)
   name: string;
 
   @ApiProperty()
