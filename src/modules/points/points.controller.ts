@@ -1,13 +1,18 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
 
 import { PointsService } from './points.service';
+import { CreatePointOfInterestDto } from './points.dto';
 
-@Controller('/')
+@Controller('point')
 export class PointsController {
   constructor(private pointsService: PointsService) {}
 
-  @Get()
-  async hello() {
-    return 'Hello World!';
+  @ApiTags('Handles points')
+  @Post('creates')
+  async createPoint(@Body() input: CreatePointOfInterestDto) {
+    await this.pointsService.saveNewPont(input);
+
+    return { message: 'New point of interest created!' };
   }
 }
