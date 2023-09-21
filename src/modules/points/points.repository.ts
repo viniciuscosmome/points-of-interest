@@ -3,7 +3,10 @@ import { PointsOfInterest } from '@prisma/client';
 
 import { handleError } from 'src/globals/errors';
 import { PrismaService } from 'src/infra/prisma/prisma.service';
-import { CreatePointOfInterestInput } from './points.types';
+import {
+  CreatePointOfInterestInput,
+  SearchRepositoryInput,
+} from './points.types';
 
 @Injectable()
 export class PointsRepository {
@@ -31,5 +34,33 @@ export class PointsRepository {
       .catch((error) => handleError(error));
 
     return points;
+  }
+
+  async getApproximatePoints(
+    input: SearchRepositoryInput,
+  ): Promise<Array<PointsOfInterest>> {
+    const points = await this.prisma.pointsOfInterest
+      .findMany({
+        where: {
+          AND: [
+            {
+              xCoord: {
+                gte: input.left,
+                lte: input.right,
+              },
+            },
+            {
+              yCoord: {
+                gte: input.bottom,
+                lte: input.top,
+              },
+            },
+          ],
+        },
+      })
+      .then((response) => response)
+      .catch((error) => handleError(error));
+
+    return points as Array<PointsOfInterest>;
   }
 }
