@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 
+import { PrismaModule } from 'src/infra/prisma/prisma.module';
 import { PointsController } from './points.controller';
 import { PointsService } from './points.service';
 import { PointsRepository } from './points.repository';
-import { PrismaModule } from '../';
 
 @Module({
   imports: [PrismaModule],

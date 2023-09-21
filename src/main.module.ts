@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { PointsModule } from './modules';
+import { PointsModule } from './modules/points/points.module';
 
 @Module({
   imports: [PointsModule],

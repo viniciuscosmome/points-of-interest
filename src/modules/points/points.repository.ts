@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 
-import { handleError } from '../../globals/errors';
-import { PrismaService } from '../';
+import { handleError } from 'src/globals/errors';
+import { PrismaService } from 'src/infra/prisma/prisma.service';
 import { PointsOfInterestProps } from './points.types';
 
 @Injectable()
