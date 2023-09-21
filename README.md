@@ -1,10 +1,5 @@
-# Pontos de Interesse por GPS
-
-
 <details>
-<summary>
-<h4>Sumário</h4>
-</summary>
+<summary><h3>Sumário</h3></summary>
 
 1. Sobre o desafio
     - [Descrição](#pontos-de-interesse-por-gps)
@@ -22,7 +17,7 @@
 
 </details>
 
----
+# Pontos de Interesse por GPS
 
 **O desafio:** implementar um serviço para a empresa XY Inc., especializada na produção de excelentes receptores
 GPS (Global Positioning System).
@@ -63,7 +58,6 @@ retornar os seguintes POIs:
 - [x] Os POIs devem ser armazenados em uma base de dados.
 - [x] Listar todos os POIs cadastrados.
 - [x] Listar os POIs por proximidade. Este serviço receberá uma coordenada X e uma coordenada Y, especificando um ponto de referência, bem como uma  distância máxima (d-max) em metros. O serviço deverá retornar todos os POIs da base de dados que estejam a uma distância menor ou igual a d-max a partir do ponto de referência.
-- []
 
 </details>
 
