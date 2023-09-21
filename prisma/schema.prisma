@@ -1,0 +1,20 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./database/pois.sql"
+}
+
+model PointsOfInterest {
+  id     String @id @default(uuid())
+  name   String
+  xCoord Int    @map("x_coord")
+  yCoord Int    @map("y_coord")
+
+  @@map("points_of_interest")
+}
