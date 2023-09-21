@@ -70,8 +70,63 @@ git clone https://github.com/viniciuscosmome/points-of-interest points-of-intere
 Depois de clonar e sempre que atualizar o repositório, execute o comando abaixo para manter as dependências atualizadas.
 
 ```bash
-$ yarn install
+yarn install
 ```
 
-> [!Note]\
-> Ao instalar as dependências, automaticamente o script `prepare` que está configurado no `package.json` será executado para executar as migrações do banco de dados.
+### Migrações
+
+O comando abaixo serve para configurar o banco de dados executando as migrações.
+
+```bash
+yarn prisma:migrate:dev
+#ou
+npx prisma migrate dev
+```
+
+### Seed
+
+O arquivo `seed.ts` contém Pontos de interesse pré-configurado que você pode usar para criar dados iniciais na base de dados.
+
+```bash
+yarn prisma:seed
+# ou
+npx prisma db seed
+```
+
+### Inicializando a API
+
+**Modo: desenvolvimento**
+
+Este comando inicia o aplicativo com o servidor HTTP. Abra seu navegador e navegue até ` http://localhost:3000/ `.
+
+```bash
+yarn start
+```
+
+**Modo: desenvolvimento (--watch)**
+
+Este comando irá monitorar seus arquivos, recompilando e recarregando automaticamente o servidor
+
+```bash
+yarn start:dev
+```
+
+**Modo: produção**
+
+Esse comando inicia a aplicação no modo de produção.
+
+```bash
+yarn build # compila a API
+yarn start:prod # inicializa a versão de produção
+```
+
+## Testes
+
+**Unitários**
+```bash
+yarn test
+```
+
+## Licença
+
+` Points Of Interest ` com [licença MIT](LICENSE).
