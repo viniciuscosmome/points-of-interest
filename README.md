@@ -1,6 +1,6 @@
 # Pontos de Interesse por GPS
 
-Seu desafio será implementar um serviço para a empresa XY Inc., especializada na produção de excelentes receptores
+**O desafio:** implementar um serviço para a empresa XY Inc., especializada na produção de excelentes receptores
 GPS (Global Positioning System).
 A diretoria está empenhada em lançar um dispositivo inovador que promete auxiliar pessoas na localização de pontos de
 interesse (POIs), e precisa muito de sua ajuda.
