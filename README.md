@@ -129,4 +129,4 @@ yarn test
 
 ## Licença
 
-` Points Of Interest ` com [licença MIT](LICENSE).
+` Points Of Interest ` com [licença MIT](./profile/LICENSE).
