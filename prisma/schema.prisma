@@ -13,8 +13,8 @@ datasource db {
 model PointsOfInterest {
   id     String @id @default(uuid())
   name   String
-  xCoord BigInt @map("x_coord")
-  yCoord BigInt @map("y_coord")
+  xCoord Int    @map("x_coord")
+  yCoord Int    @map("y_coord")
 
   @@map("points_of_interest")
 }
