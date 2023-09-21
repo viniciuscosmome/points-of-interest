@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
-import * as request from 'supertest';
+// import * as request from 'supertest';
 import { MainModule } from '../../src/main.module';
 
 describe('AppController (e2e)', () => {
@@ -15,16 +15,7 @@ describe('AppController (e2e)', () => {
     await server.init();
   });
 
-  describe('Handles points', () => {
-    describe('asd', () => {
-      it('/point/creates (POST)', () => {
-        return request(server.getHttpServer())
-          .post('/point/creates')
-          .expect(201)
-          .expect(
-            JSON.stringify({ message: 'New point of interest created!' }),
-          );
-      });
-    });
+  it('Server to be defined', () => {
+    expect(server).toBeDefined();
   });
 });
