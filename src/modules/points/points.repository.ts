@@ -63,4 +63,16 @@ export class PointsRepository {
 
     return points as Array<PointsOfInterest>;
   }
+
+  async deletePointsById(ids: Array<PointsOfInterest['id']>): Promise<void> {
+    await this.prisma.pointsOfInterest
+      .deleteMany({
+        where: {
+          id: {
+            in: ids,
+          },
+        },
+      })
+      .catch((error) => handleError(error));
+  }
 }

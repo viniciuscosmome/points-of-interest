@@ -62,4 +62,8 @@ export class PointsService {
       filter: input,
     });
   }
+
+  async deletePoints(ids: Array<PointsOfInterest['id']>) {
+    await this.pointsRepository.deletePointsById(ids);
+  }
 }

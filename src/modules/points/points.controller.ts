@@ -1,8 +1,8 @@
-import { Body, Controller, Get, Post, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Post, Query } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 
 import { PointsService } from './points.service';
-import { CreatePointOfInterestDto } from './points.dto';
+import { CreatePointOfInterestDto, DeletePointsDto } from './points.dto';
 import { CoordinatePipe, DistancePipe } from 'src/utils/pipes/searchPointQuery';
 
 @ApiTags('Handle points')
@@ -38,5 +38,11 @@ export class PointsController {
     await this.pointsService.saveNewPont(input);
 
     return { message: 'New point of interest created!' };
+  }
+
+  @Delete('')
+  async excludePoint(@Body() input: DeletePointsDto) {
+    await this.pointsService.deletePoints(input.ids);
+    return { message: 'Deleted points!' };
   }
 }

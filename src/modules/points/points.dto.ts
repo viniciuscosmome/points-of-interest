@@ -1,5 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 import {
+  ArrayMinSize,
+  IsArray,
   IsInt,
   IsNotEmpty,
   IsNumber,
@@ -28,4 +30,12 @@ export class CreatePointOfInterestDto {
   @IsInt()
   @Min(0)
   yCoord: number;
+}
+
+export class DeletePointsDto {
+  @ApiProperty({ example: ['0fdd1388-1333-4a6d-98e1-4a857c5c986f'] })
+  @IsNotEmpty()
+  @IsArray()
+  @ArrayMinSize(1)
+  ids: Array<string>;
 }
