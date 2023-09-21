@@ -9,20 +9,20 @@ import {
 } from 'class-validator';
 
 export class CreatePointOfInterestDto {
-  @ApiProperty({ example: 'Lanchonete' })
+  @ApiProperty({ example: 'Aeroporto' })
   @IsNotEmpty()
   @IsString()
   @Matches(/^[a-zÀ-ÿ0-9 ]+$/i)
   name: string;
 
-  @ApiProperty({ example: 21 })
+  @ApiProperty({ example: 14 })
   @IsNotEmpty()
   @IsNumber()
   @IsInt()
   @Min(0)
   xCoord: number;
 
-  @ApiProperty({ example: 32 })
+  @ApiProperty({ example: 16 })
   @IsNotEmpty()
   @IsNumber()
   @IsInt()
