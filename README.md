@@ -32,10 +32,7 @@ retornar os seguintes POIs:
 
 </details>
 
-<details>
-<summary><strong>Requisitos</strong></summary>
-
----
+### Requisitos da API
 
 - [x] Cadastrar pontos de interesse, com 03 atributos: nome do POI, coordenada X (inteiro não negativo) e coordenada Y (inteiro não negativo).
 - [x] Os POIs devem ser armazenados em uma base de dados.
