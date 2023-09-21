@@ -1,3 +1,22 @@
+<details>
+<summary><h3>Sumário</h3></summary>
+
+1. Sobre o desafio
+    - [Descrição](#pontos-de-interesse-por-gps)
+    - [Funcionalidades](#funcionalidades-da-api)
+1. Baixar e executar
+    - [Requisitos](#requisitos)
+    - [Clone o projeto](#crie-um-fork-e-então-clone)
+    - [Dependências](#dependências)
+    - [Migrações](#migrações)
+    - [Seed](#seed)
+    - [Iniciando a aplicação](#inicializando-a-api)
+1. Testes
+    - [Testes unitários](#testes)
+1. [LICENÇA](#licença)
+
+</details>
+
 # Pontos de Interesse por GPS
 
 **O desafio:** implementar um serviço para a empresa XY Inc., especializada na produção de excelentes receptores
@@ -32,7 +51,8 @@ retornar os seguintes POIs:
 
 </details>
 
-### Requisitos da API
+### Funcionalidades da API
+<sup>Requeridas pelo desafio</sup>
 
 - [x] Cadastrar pontos de interesse, com 03 atributos: nome do POI, coordenada X (inteiro não negativo) e coordenada Y (inteiro não negativo).
 - [x] Os POIs devem ser armazenados em uma base de dados.
@@ -91,6 +111,9 @@ npx prisma db seed
 ```
 
 ### Inicializando a API
+
+> [!Note]\
+> Ao acessar a API no navegador você terá acesso a uma documentação das rotas construida com o [Swagger](https://docs.nestjs.com/openapi/introduction)
 
 **Modo: desenvolvimento**
 
