@@ -49,12 +49,13 @@ export class PointsService {
     if (bottom < 0) bottom = 0;
     if (left < 0) left = 0;
 
-    const approximatePoints = await this.pointsRepository.getApproximatePoints({
-      top,
-      bottom,
-      left,
-      right,
-    });
+    const approximatePoints =
+      (await this.pointsRepository.getApproximatePoints({
+        top,
+        bottom,
+        left,
+        right,
+      })) || [];
 
     return this.filterPoints({
       points: approximatePoints,
