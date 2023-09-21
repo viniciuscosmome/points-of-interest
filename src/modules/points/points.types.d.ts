@@ -1,5 +1,3 @@
-export type PointsOfInterestProps = {
-  name: string;
-  xCoord: number;
-  yCoord: number;
-};
+import { PointsOfInterest } from '@prisma/client';
+
+export type CreatePointOfInterestInput = Omit<PointsOfInterest, 'id'>;

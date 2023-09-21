@@ -2,13 +2,15 @@ import { Injectable } from '@nestjs/common';
 
 import { handleError } from 'src/globals/errors';
 import { PrismaService } from 'src/infra/prisma/prisma.service';
-import { PointsOfInterestProps } from './points.types';
+import { CreatePointOfInterestInput } from './points.types';
 
 @Injectable()
 export class PointsRepository {
   constructor(private prisma: PrismaService) {}
 
-  async createPointOfInterest(input: PointsOfInterestProps): Promise<void> {
+  async createPointOfInterest(
+    input: CreatePointOfInterestInput,
+  ): Promise<void> {
     await this.prisma.pointsOfInterest
       .create({
         data: {
