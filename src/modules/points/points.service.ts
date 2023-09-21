@@ -12,4 +12,10 @@ export class PointsService {
 
     return;
   }
+
+  async getAllPoints() {
+    const points = this.pointsRepository.getAllPoints() || [];
+
+    return points;
+  }
 }

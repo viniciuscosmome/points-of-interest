@@ -1,5 +1,4 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { PointsOfInterest } from '@prisma/client';
 import {
   IsInt,
   IsNotEmpty,
@@ -10,23 +9,23 @@ import {
 } from 'class-validator';
 
 export class CreatePointOfInterestDto {
-  @ApiProperty()
+  @ApiProperty({ example: 'Lanchonete' })
   @IsNotEmpty()
   @IsString()
   @Matches(/^[a-zÀ-ÿ0-9 ]+$/i)
-  name: PointsOfInterest['name'];
+  name: string;
 
-  @ApiProperty()
+  @ApiProperty({ example: 21 })
   @IsNotEmpty()
   @IsNumber()
   @IsInt()
   @Min(0)
-  xCoord: PointsOfInterest['xCoord'];
+  xCoord: number;
 
-  @ApiProperty()
+  @ApiProperty({ example: 32 })
   @IsNotEmpty()
   @IsNumber()
   @IsInt()
   @Min(0)
-  yCoord: PointsOfInterest['yCoord'];
+  yCoord: number;
 }

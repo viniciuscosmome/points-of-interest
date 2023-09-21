@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { PointsOfInterest } from '@prisma/client';
 
 import { handleError } from 'src/globals/errors';
 import { PrismaService } from 'src/infra/prisma/prisma.service';
@@ -21,5 +22,14 @@ export class PointsRepository {
       })
       .then((response) => !!response)
       .catch((error) => handleError(error));
+  }
+
+  async getAllPoints(): Promise<Array<PointsOfInterest> | void> {
+    const points = await this.prisma.pointsOfInterest
+      .findMany()
+      .then((points) => points)
+      .catch((error) => handleError(error));
+
+    return points;
   }
 }
