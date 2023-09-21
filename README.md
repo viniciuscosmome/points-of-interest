@@ -1,5 +1,29 @@
 # Pontos de Interesse por GPS
 
+
+<details>
+<summary>
+<h4>Sumário</h4>
+</summary>
+
+1. Sobre o desafio
+    - [Descrição](#pontos-de-interesse-por-gps)
+    - [Funcionalidades](#funcionalidades-da-api)
+1. Baixar e executar
+    - [Requisitos](#requisitos)
+    - [Clone o projeto](#crie-um-fork-e-então-clone)
+    - [Dependências](#dependências)
+    - [Migrações](#migrações)
+    - [Seed](#seed)
+    - [Iniciando a aplicação](#inicializando-a-api)
+1. Testes
+    - [Testes unitários](#testes)
+1. [LICENÇA](#licença)
+
+</details>
+
+---
+
 **O desafio:** implementar um serviço para a empresa XY Inc., especializada na produção de excelentes receptores
 GPS (Global Positioning System).
 A diretoria está empenhada em lançar um dispositivo inovador que promete auxiliar pessoas na localização de pontos de
@@ -32,12 +56,14 @@ retornar os seguintes POIs:
 
 </details>
 
-### Requisitos da API
+### Funcionalidades da API
+<sup>Requeridas pelo desafio</sup>
 
 - [x] Cadastrar pontos de interesse, com 03 atributos: nome do POI, coordenada X (inteiro não negativo) e coordenada Y (inteiro não negativo).
 - [x] Os POIs devem ser armazenados em uma base de dados.
 - [x] Listar todos os POIs cadastrados.
 - [x] Listar os POIs por proximidade. Este serviço receberá uma coordenada X e uma coordenada Y, especificando um ponto de referência, bem como uma  distância máxima (d-max) em metros. O serviço deverá retornar todos os POIs da base de dados que estejam a uma distância menor ou igual a d-max a partir do ponto de referência.
+- []
 
 </details>
 
@@ -91,6 +117,9 @@ npx prisma db seed
 ```
 
 ### Inicializando a API
+
+> [!Note]\
+> Ao acessar a API no navegador você terá acesso a uma documentação das rotas construida com o [Swagger](https://docs.nestjs.com/openapi/introduction)
 
 **Modo: desenvolvimento**
 
