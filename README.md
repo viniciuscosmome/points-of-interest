@@ -4,6 +4,11 @@
 1. Sobre o desafio
     - [Descrição](#pontos-de-interesse-por-gps)
     - [Funcionalidades](#funcionalidades-da-api)
+1. _Endpoints_ da API
+    - [Pegar todos pontos](#pegar-todos-os-pontos)
+    - [Pegar pontos por proximidade](#pegar-pontos-por-proximidade)
+    - [Criar ponto de interesse](#criar-ponto-de-interesse)
+    - [Deletar pontos de interesse](#deletar-pontos-de-interesse)
 1. Baixar e executar
     - [Requisitos](#requisitos)
     - [Clone o projeto](#crie-um-fork-e-então-clone)
@@ -67,6 +72,106 @@ retornar os seguintes POIs:
 ![license](https://img.shields.io/github/license/viniciuscosmome/points-of-interest?style=flat-square&labelColor=f2f2f2&color=white)
 ![main tool](https://img.shields.io/badge/Nest_JS-f2f2f2?logo=nestjs&logoColor=db1737&style=flat-square)
 ![Database](https://img.shields.io/badge/SQLite-3684e3?logo=sqlite&logoColor=f2f2f2&style=flat-square)
+
+<details>
+<summary><h2><em>Endpoints</em> da API</h2></summary>
+
+### Pegar todos os pontos
+
+Request
+
+```yml
+path: /points
+method: GET
+```
+
+Response
+
+```yml
+status: 200
+body: Array<{ id, name, xCoord, yCoord }>
+```
+
+### Pegar pontos por proximidade
+
+Request
+
+- ` distance `: Número positivo
+- ` xCoord `: Número positivo
+- ` yCoord `: Número positivo
+
+```yml
+path: /points/search
+query: ?distance=10&xCoord=20&yCoord=10
+method: GET
+```
+
+Response
+
+```yml
+status: 200
+body: Array<{
+  id: string,
+  name: string,
+  xCoord: number,
+  yCoord: number
+}>
+```
+
+### Criar ponto de interesse
+
+Request
+
+- ` name `: Texto
+- ` xCoord `: Número inteiro positivo
+- ` yCoord `: Número inteiro positivo
+
+```yml
+path: /points
+method: POST
+header: {
+  "Cotent-Type": "application/json"
+}
+body: {
+  name: string,
+  xCoord: number,
+  yCoord: number
+}
+```
+
+Response
+
+```yml
+status: 201
+body: {
+  message: string
+}
+```
+
+### Deletar pontos de interesse
+
+Request
+
+```yml
+path: /points
+method: DELETE
+body: {
+  ids: Array<string>
+}
+```
+
+Response
+
+```yml
+status: 200
+body: {
+  message: string
+}
+```
+
+</details>
+
+---
 
 Descrição em <strong>pt-BR</strong>
 
