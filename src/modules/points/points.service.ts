@@ -15,7 +15,7 @@ export class PointsService {
   private filterPoints(input: FindPointsInput): Array<PointsOfInterest> {
     const { points, filter } = input;
 
-    const filtrered = points.filter((point) => {
+    const filtered = points.filter((point) => {
       const x = filter.xCoord - point.xCoord;
       const y = filter.yCoord - point.yCoord;
       const distance = Math.hypot(x, y);
@@ -23,13 +23,11 @@ export class PointsService {
       return distance <= filter.distance;
     });
 
-    return filtrered;
+    return filtered;
   }
 
-  async saveNewPont(input: CreatePointOfInterestInput): Promise<void> {
+  async saveNewPoint(input: CreatePointOfInterestInput): Promise<void> {
     await this.pointsRepository.createPointOfInterest(input);
-
-    return;
   }
 
   async getAllPoints() {
