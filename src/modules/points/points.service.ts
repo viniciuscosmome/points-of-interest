@@ -2,16 +2,17 @@ import { Injectable } from '@nestjs/common';
 import { PointsOfInterest } from '@prisma/client';
 
 import { PointsRepository } from './points.repository';
-import { CreatePointOfInterestInput, SearchServiceInput } from './points.types';
+import {
+  CreatePointOfInterestInput,
+  FindPointsInput,
+  SearchServiceInput,
+} from './points.types';
 
 @Injectable()
 export class PointsService {
   constructor(private pointsRepository: PointsRepository) {}
 
-  private filterPoints(input: {
-    points: Array<PointsOfInterest>;
-    filter: SearchServiceInput;
-  }): Array<PointsOfInterest> {
+  private filterPoints(input: FindPointsInput): Array<PointsOfInterest> {
     const { points, filter } = input;
 
     const filtrered = points.filter((point) => {
