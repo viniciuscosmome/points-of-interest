@@ -10,3 +10,7 @@ export type SearchRepositoryInput = {
   right: number;
   left: number;
 };
+export type FindPointsInput = {
+  points: Array<PointsOfInterest>;
+  filter: SearchServiceInput;
+};
