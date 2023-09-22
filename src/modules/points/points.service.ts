@@ -32,7 +32,7 @@ export class PointsService {
   }
 
   async getAllPoints() {
-    const points = this.pointsRepository.getAllPoints() || [];
+    const points = (await this.pointsRepository.getAllPoints()) || [];
 
     return points;
   }
