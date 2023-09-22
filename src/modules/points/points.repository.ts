@@ -23,7 +23,6 @@ export class PointsRepository {
           yCoord: input.yCoord,
         },
       })
-      .then((response) => !!response)
       .catch((error) => handleError(error));
   }
 
