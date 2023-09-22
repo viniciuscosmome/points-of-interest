@@ -73,40 +73,45 @@ retornar os seguintes POIs:
 ![main tool](https://img.shields.io/badge/Nest_JS-f2f2f2?logo=nestjs&logoColor=db1737&style=flat-square)
 ![Database](https://img.shields.io/badge/SQLite-3684e3?logo=sqlite&logoColor=f2f2f2&style=flat-square)
 
-<details>
-<summary><h2><em>Endpoints</em> da API</h2></summary>
+## _Endpoints_ da API
 
 ### Pegar todos os pontos
 
-Request
+**Request**
 
 ```yml
 path: /points
 method: GET
 ```
 
-Response
+**Response**
 
 ```yml
 status: 200
-body: Array<{ id, name, xCoord, yCoord }>
+body: Array<{
+  id: string,
+  name: string,
+  xCoord: number,
+  yCoord: number
+}>
 ```
 
 ### Pegar pontos por proximidade
 
-Request
+**Request**
 
+Parâmetros da QueryString
 - ` distance `: Número positivo
 - ` xCoord `: Número positivo
 - ` yCoord `: Número positivo
 
 ```yml
 path: /points/search
-query: ?distance=10&xCoord=20&yCoord=10
+query string: distance=NUMBER&xCoord=NUMBER&yCoord=NUMBER
 method: GET
 ```
 
-Response
+**Response**
 
 ```yml
 status: 200
@@ -120,7 +125,7 @@ body: Array<{
 
 ### Criar ponto de interesse
 
-Request
+**Request**
 
 - ` name `: Texto
 - ` xCoord `: Número inteiro positivo
@@ -139,7 +144,7 @@ body: {
 }
 ```
 
-Response
+**Response**
 
 ```yml
 status: 201
@@ -150,7 +155,7 @@ body: {
 
 ### Deletar pontos de interesse
 
-Request
+**Request**
 
 ```yml
 path: /points
@@ -160,7 +165,7 @@ body: {
 }
 ```
 
-Response
+**Response**
 
 ```yml
 status: 200
@@ -168,8 +173,6 @@ body: {
   message: string
 }
 ```
-
-</details>
 
 ---
 
