@@ -3,7 +3,7 @@ import { ApiTags } from '@nestjs/swagger';
 
 import { PointsService } from './points.service';
 import { CreatePointOfInterestDto, DeletePointsDto } from './points.dto';
-import { CoordinatePipe, DistancePipe } from 'src/utils/pipes/searchPointQuery';
+import { SearchPointsPipe } from 'src/utils/pipes/searchPointQuery';
 
 @ApiTags('Handle points')
 @Controller('points')
@@ -17,13 +17,13 @@ export class PointsController {
 
   @Get('search')
   async searchPoints(
-    @Query('distance', DistancePipe)
+    @Query('distance', SearchPointsPipe)
     distance: number,
 
-    @Query('xCoord', CoordinatePipe)
+    @Query('xCoord', SearchPointsPipe)
     xCoord: number,
 
-    @Query('yCoord', CoordinatePipe)
+    @Query('yCoord', SearchPointsPipe)
     yCoord: number,
   ) {
     return await this.pointsService.searchPoints({

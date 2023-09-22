@@ -36,14 +36,6 @@ class ValidateParams {
     }
   }
 
-  public integer() {
-    const notInteger = this.modified % 1 !== 0;
-
-    if (notInteger) {
-      this.integerException();
-    }
-  }
-
   private emptyException() {
     throw new BadRequestException(
       `The ${this.orientation} coordinate has not defined. The property name is ${this.propertyName}`,
@@ -61,15 +53,9 @@ class ValidateParams {
       `${this.propertyName} must be positive number`,
     );
   }
-
-  private integerException() {
-    throw new BadRequestException(
-      `${this.propertyName} must be integer number`,
-    );
-  }
 }
 
-export class DistancePipe extends ValidateParams implements PipeTransform {
+export class SearchPointsPipe extends ValidateParams implements PipeTransform {
   constructor() {
     super();
   }
@@ -83,27 +69,6 @@ export class DistancePipe extends ValidateParams implements PipeTransform {
     this.modified = Number(value);
     this.numericString();
     this.positive();
-
-    return this.modified;
-  }
-}
-
-export class CoordinatePipe extends ValidateParams implements PipeTransform {
-  constructor() {
-    super();
-  }
-
-  transform(value: unknown, metadata: ArgumentMetadata) {
-    this.propertyName = metadata.data;
-    this.orientation = metadata.data[0];
-    this.value = value;
-
-    this.isEmpty();
-
-    this.modified = Number(value);
-    this.numericString();
-    this.positive();
-    this.integer();
 
     return this.modified;
   }
