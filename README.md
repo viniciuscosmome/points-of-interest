@@ -2,22 +2,22 @@
 <summary><h3>Sumário</h3></summary>
 
 1. Sobre o desafio
-    - [Descrição](#pontos-de-interesse-por-gps)
-    - [Funcionalidades](#funcionalidades-da-api)
+   - [Descrição](#pontos-de-interesse-por-gps)
+   - [Funcionalidades](#pontos-de-interesse-por-gps)
 1. _Endpoints_ da API
-    - [Pegar todos pontos](#pegar-todos-os-pontos)
-    - [Pegar pontos por proximidade](#pegar-pontos-por-proximidade)
-    - [Criar ponto de interesse](#criar-ponto-de-interesse)
-    - [Deletar pontos de interesse](#deletar-pontos-de-interesse)
+   - [Pegar todos pontos](#pegar-todos-os-pontos)
+   - [Pegar pontos por proximidade](#pegar-pontos-por-proximidade)
+   - [Criar ponto de interesse](#criar-ponto-de-interesse)
+   - [Deletar pontos de interesse](#deletar-pontos-de-interesse)
 1. Baixar e executar
-    - [Requisitos](#requisitos)
-    - [Clone o projeto](#crie-um-fork-e-então-clone)
-    - [Dependências](#dependências)
-    - [Migrações](#migrações)
-    - [Seed](#seed)
-    - [Iniciando a aplicação](#inicializando-a-api)
+   - [Requisitos](#requisitos)
+   - [Clone o projeto](#crie-um-fork-e-então-clone)
+   - [Dependências](#dependências)
+   - [Migrações](#migrações)
+   - [Seed](#seed)
+   - [Iniciando a aplicação](#inicializando-a-api)
 1. Testes
-    - [Testes unitários](#testes)
+   - [Testes unitários](#testes)
 1. [LICENÇA](#licença)
 
 </details>
@@ -56,13 +56,15 @@ retornar os seguintes POIs:
 
 </details>
 
-### Funcionalidades da API
-<sup>Requeridas pelo desafio</sup>
+<details>
+<summary><strong>Funcionalidades da API</strong></summary>
+
+---
 
 - [x] Cadastrar pontos de interesse, com 03 atributos: nome do POI, coordenada X (inteiro não negativo) e coordenada Y (inteiro não negativo).
 - [x] Os POIs devem ser armazenados em uma base de dados.
 - [x] Listar todos os POIs cadastrados.
-- [x] Listar os POIs por proximidade. Este serviço receberá uma coordenada X e uma coordenada Y, especificando um ponto de referência, bem como uma  distância máxima (d-max) em metros. O serviço deverá retornar todos os POIs da base de dados que estejam a uma distância menor ou igual a d-max a partir do ponto de referência.
+- [x] Listar os POIs por proximidade. Este serviço receberá uma coordenada X e uma coordenada Y, especificando um ponto de referência, bem como uma distância máxima (d-max) em metros. O serviço deverá retornar todos os POIs da base de dados que estejam a uma distância menor ou igual a d-max a partir do ponto de referência.
 
 </details>
 
@@ -101,9 +103,10 @@ body: Array<{
 **Request**
 
 Parâmetros da QueryString
-- ` distance `: Número positivo
-- ` xCoord `: Número positivo
-- ` yCoord `: Número positivo
+
+- `distance`: Número positivo
+- `xCoord`: Número positivo
+- `yCoord`: Número positivo
 
 ```yml
 path: /points/search
@@ -127,30 +130,22 @@ body: Array<{
 
 **Request**
 
-- ` name `: Texto
-- ` xCoord `: Número inteiro positivo
-- ` yCoord `: Número inteiro positivo
+- `name`: Texto
+- `xCoord`: Número inteiro positivo
+- `yCoord`: Número inteiro positivo
 
 ```yml
 path: /points
 method: POST
-header: {
-  "Content-Type": "application/json"
-}
-body: {
-  name: string,
-  xCoord: number,
-  yCoord: number
-}
+header: { 'Content-Type': 'application/json' }
+body: { name: string, xCoord: number, yCoord: number }
 ```
 
 **Response**
 
 ```yml
 status: 201
-body: {
-  message: string
-}
+body: { message: string }
 ```
 
 ### Deletar pontos de interesse
@@ -160,21 +155,15 @@ body: {
 ```yml
 path: /points
 method: DELETE
-header: {
-  "Content-Type": "application/json"
-}
-body: {
-  ids: Array<string>
-}
+header: { 'Content-Type': 'application/json' }
+body: { ids: Array<string> }
 ```
 
 **Response**
 
 ```yml
 status: 200
-body: {
-  message: string
-}
+body: { message: string }
 ```
 
 ---
@@ -182,6 +171,7 @@ body: {
 Descrição em <strong>pt-BR</strong>
 
 ## Requisitos
+
 1. [Node.js 18.x LTS](https://nodejs.org/en) ou superior.
 
 ## Instalação
@@ -228,7 +218,7 @@ npx prisma db seed
 
 **Modo: desenvolvimento**
 
-Este comando inicia o aplicativo com o servidor HTTP. Abra seu navegador e navegue até ` http://localhost:3000/ `.
+Este comando inicia o aplicativo com o servidor HTTP. Abra seu navegador e navegue até `http://localhost:3000/`.
 
 ```bash
 yarn start
@@ -254,10 +244,11 @@ yarn start:prod # inicializa a versão de produção
 ## Testes
 
 **Unitários**
+
 ```bash
 yarn test
 ```
 
 ## Licença
 
-` Points Of Interest ` com [licença MIT](LICENSE).
+`Points Of Interest` com [licença MIT](LICENSE).
