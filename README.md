@@ -135,7 +135,7 @@ body: Array<{
 path: /points
 method: POST
 header: {
-  "Cotent-Type": "application/json"
+  "Content-Type": "application/json"
 }
 body: {
   name: string,
