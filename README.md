@@ -160,6 +160,9 @@ body: {
 ```yml
 path: /points
 method: DELETE
+header: {
+  "Content-Type": "application/json"
+}
 body: {
   ids: Array<string>
 }
