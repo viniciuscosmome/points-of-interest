@@ -33,7 +33,7 @@ export class PointsController {
     });
   }
 
-  @Post('creates')
+  @Post('')
   async createPoint(@Body() input: CreatePointOfInterestDto) {
     await this.pointsService.saveNewPoint(input);
 
